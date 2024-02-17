@@ -1,1 +1,4 @@
-console.log("Hello World");
+function meow() {
+	console.llg("meow");
+}
+meow();
