@@ -1,4 +1,4 @@
 function meow() {
-	console.llg("meow");
+	console.log("meow");
 }
 meow();
