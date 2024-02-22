@@ -8,8 +8,14 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-	res.status(200).send("Hello from the miniproj API\n- By Pupta & DVD.");
+app.post("/", (req, res) => {
+	res.json({ message: "Hello from the miniproj API\n- By Pupta & DVD." });
+});
+
+app.post("/name", (req, res) => {
+	const { name } = req.body;
+	res.json({ message: `Hello, ${name}!` });
+	console.log(`Hello, ${name}!`);
 });
 
 app.listen(port, () => {
