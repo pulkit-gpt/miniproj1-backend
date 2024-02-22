@@ -1,0 +1,626 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESP Web Server</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html {
+    font-family: Arial;
+    /* display: inline-block; */
+    /* text-align: center; */
+}
+
+h2 {
+    font-size: 2.3rem;
+}
+
+p {
+    font-size: 1.9rem;
+}
+
+
+/* body {
+    max-width: 40px;
+    margin: 0px auto;
+    padding-bottom: 25px;
+} */
+
+.slider {
+    -webkit-appearance: none;
+    margin: 14px;
+    width: 360px;
+    height: 25px;
+    background: #FFD65C;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 35px;
+    height: 35px;
+    background: #003249;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 35px;
+    height: 35px;
+    background: #003249;
+    cursor: pointer;
+}
+
+/* Apply some general styles to the form wrapper */
+
+/* Apply some general styles to the form wrapper */
+.wrapper {
+float: left;
+width: 100%;
+max-width: 400px;
+margin: 20px auto;
+margin-left: 20px;
+padding: 20px;
+background-color: #f4f4f4;
+border: 1px solid #ddd;
+box-shadow: 0px 0px 5px #ddd;
+border-radius: 5px;
+text-align: left;
+}
+
+/* Style the form labels */
+label {
+display: block;
+margin-top: 10px;
+font-weight: bold;
+color: #333;
+}
+
+/* Style the input fields */
+input[type="text"],
+select {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+/* Style the submit button */
+#submitButton ,#resetButton{
+background-color: #4c9e9e;
+color: #fff;
+border: none;
+border-radius: 5px;
+padding: 10px;
+cursor: pointer;
+}
+
+/* Add some hover effect to the submit button */
+#submitButton:hover {
+background-color: #368b8b;
+}
+
+/* Style the result paragraph */
+#result {
+margin-top: 10px;
+font-weight: bold;
+color: #333;
+}
+
+.function2{
+float: right;
+width: 100%;
+max-width: 400px;
+margin: 20px auto;
+margin-right:550px;
+padding: 20px;
+background-color: #f3f3f3;
+border: 1px solid #ddd;
+box-shadow: 0px 0px 5px #ddd;
+border-radius: 5px;
+text-align: center;
+align-items: center;
+}
+body {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+text-decoration: none;
+}
+
+li {
+list-style: none;
+}
+.navbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+/* padding-left: 5px; */
+background-color: teal;
+color: #fff;
+}
+
+.nav-links a {
+color: #fff;
+}
+
+/* LOGO */
+.logo {
+font-size: 32px;
+padding-left: 90px;
+/* padding: 10px; */
+}
+
+/* NAVBAR MENU */
+.menu {
+display: flex;
+gap: 1em;
+font-size: 18px;
+}
+
+.menu li:hover {
+background-color: #4c9e9e;
+border-radius: 5px;
+transition: 0.3s ease;
+}
+
+.menu li {
+padding: 8px 14px;
+}
+
+/* DROPDOWN MENU */
+.services {
+position: relative; 
+}
+
+.dropdown {
+background-color: rgb(1, 139, 139);
+padding: 1em 0;
+position: absolute; /*WITH RESPECT TO PARENT*/
+display: none;
+border-radius: 8px;
+top: 35px;
+z-index: 5;
+}
+
+.dropdown li + li {
+margin-top: 10px;
+}
+
+.dropdown li {
+padding: 0.5em 1em;
+width: 8em;
+text-align: center;
+}
+
+.dropdown li:hover {
+background-color: #4c9e9e;
+}
+
+.services:hover .dropdown {
+display: block;
+}
+
+
+
+.logo{
+float: right;
+margin-left: -1040px;
+}
+
+.fa{
+float: right;
+margin-left: 20px;
+
+}
+
+
+
+/* .timer{
+    position: fixed;
+    float: right;
+    width: 100%;
+    max-width: 400px;
+    
+    margin: 20px auto;
+   margin-left: 500px;
+   margin-right: 30px;
+   margin-top: -330px;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px #ddd;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    } */
+
+    .timer {
+        position: fixed;
+        top: 10px; /* Adjust the top position as needed */
+        right: 10px; /* Adjust the right position as needed */
+        margin: 10px;
+        max-width: 400px;
+        margin-top: 120px;
+        margin-right: 40px;
+        align-items: center;
+    text-align: center;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 5px #ddd;
+    border-radius: 5px;
+        /* Set the background color as needed */ 
+        /* padding: 10px; */
+        border: 1px solid #ddd; /* Add a border if desired */
+        border-radius: 5px; /* Add border radius for rounded corners */
+    }
+    
+    .timer input {
+        width: 290px;
+        margin-right: 5px;
+
+    }
+
+    .disabled-slider {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+    
+    .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .custom-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .custom-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.custom-slider {
+            background-color: #4CAF50;
+        }
+
+        input:focus+.custom-slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.custom-slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+    /* Style the timer input boxes */
+    
+</style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- LOGO -->
+       
+
+        <i class="fa fa-heartbeat" style="font-size:48px;color:rgb(255, 255, 255)"></i>
+        <div class="logo">MEDIHUB</div>
+       
+    
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+    
+    
+          <!-- NAVIGATION MENUS -->
+          <div class="menu">
+    
+            <li><a href="/">Home</a></li>
+            
+    
+            <li class="services">
+              <a href="/">Info</a>
+    
+              <!-- DROPDOWN MENU -->
+              <ul class="dropdown">
+                <li><a href="/">Pricing </a></li>
+                <li><a href="/">Report</a></li>
+                <li><a href="/">Contact</a></li>
+                
+              </ul>
+              <li><a href="/">Help</a></li>
+    
+            </li>
+          </div>
+        </ul>
+      </nav>
+<!-- for  form -->
+<div class="wrapper">
+ 
+    <label>Name of patient</label>
+    <input id="firstName" type="text"></input>
+
+    <div>
+      <select id="selCountry">
+        <option selected value="">-- Choose the Medicine --</option>
+        <option value="India">Glucose</option>
+        <option value="Japan">Glucose</option>
+        <option value="USA">Glucose</option>
+      </select>
+    </div>
+
+    <label>Amount of dose given(in ml):</label>
+    <input id="dose" type="text"></input>
+    <button id="submitButton" type="Submit">Done</button>
+   
+    </form>
+  </div>
+  <!--  -->
+
+  <div class="function2">
+
+    <h3>ESP Web Server</h3>
+    <h4>Flow rate (in ml/min)</h4>
+    <p><span id="textSliderValue">2.3</span></p>
+  
+            <p>
+                <input type="range" onchange="updateSliderPWM(this)" id="pwmSlider" min="2.3" max="8.4" value="2.3" step="0.1" class="slider" oninput="checkTimerStatus()">
+                <p id='result' style="color: red;"></p>
+            </p>
+            <p id='result'></p>
+        </p>
+        <button id="submitButton" onclick="setFlowRate()">Set Flow Rate</button>
+        <button id="resetButton">Reset</button>
+    </div>
+ <div class="timer">
+
+
+    <h4>Timer</h4>
+    <div>
+        <span>Hours:</span>
+        <input type="text" id="timerHours"><br>
+        <span>Minutes:</span>
+        <input type="text" id="timerMinutes"><br>
+        <span>Seconds:</span>
+        <input type="text" id="timerSeconds">
+    </div>
+
+    <p><label class="switch"><input type="checkbox" onchange="toggleCheckbox(this)" id="output"><span
+                class="slider"></span></label></p>
+              
+                <p>
+                    <label class="switch">
+                        <input type="checkbox" onchange="toggleCheckbox(this)" id="output">
+                        <span class="custom-slider"  id="customSlider2"></span>
+                    </label>
+                </p>
+
+                
+                
+    <p><span id="countdownTimer">0 s</span></p>
+
+</div>
+
+</div>
+  <!-- Your existing HTML code here -->
+
+<script>
+ var countdownInterval;
+
+
+
+function setFlowRate() {
+        var sliderValue = document.getElementById('pwmSlider').value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/set-flow-rate?value=" + sliderValue, true);
+        xhr.send();
+        
+        // Disable the slider and show the message
+        document.getElementById('pwmSlider').classList.add('disabled-slider');
+        document.getElementById('result').textContent = 'Cannot change flow rate until timer ends.';
+    }
+
+
+    function checkTimerStatus() {
+        var slider = document.getElementById('pwmSlider');
+        var resultMsg = document.getElementById('result');
+
+        // Check if the slider is disabled
+        if (slider.classList.contains('disabled-slider')) {
+            resultMsg.textContent = 'Cannot change flow rate until timer ends.';
+        } else {
+            resultMsg.textContent = '';
+        }
+    }
+
+
+    function updateSliderPWM(element) {
+        var sliderValue = element.value;
+        document.getElementById("textSliderValue").innerHTML = sliderValue;
+        // You can include your XMLHttpRequest here if needed
+        var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/slider?param=pwmValue&value=" + sliderValue, true);
+            xhr.send();
+    }
+
+    function toggleCheckbox(element) {
+    var xhr = new XMLHttpRequest();
+    if (element.checked) {
+        xhr.open("GET", "/toggle?state=1", true);
+        xhr.send();
+
+        // Start the countdown
+        var countdownValue;
+
+        // If the user has entered custom timer values
+        if (document.getElementById("timerHours").value || document.getElementById("timerMinutes").value || document.getElementById("timerSeconds").value) {
+            var customHours = parseInt(document.getElementById("timerHours").value) || 0;
+            var customMinutes = parseInt(document.getElementById("timerMinutes").value) || 0;
+            var customSeconds = parseInt(document.getElementById("timerSeconds").value) || 0;
+            countdownValue = customHours * 3600 + customMinutes * 60 + customSeconds;
+        } else {
+            // Use the default value based on the flow rate
+            countdownValue = document.getElementById("countdownTimer").getAttribute("data-total-seconds");
+        }
+
+        startCountdown(countdownValue);
+    } else {
+        xhr.open("GET", "/toggle?state=0", true);
+        xhr.send();
+
+        // Stop the countdown
+        clearInterval(countdownInterval);
+        countdownValue = 0;
+        updateCountdown(countdownValue);
+
+        // Set the checkbox to unchecked
+        element.checked = false;
+
+        // Enable the set flow rate button and disable the slider
+        document.getElementById('submitButton').disabled = false;
+        document.getElementById('pwmSlider').classList.add('disabled-slider');
+        document.getElementById('result').textContent = '';
+    }
+}
+
+function startCountdown(seconds) {
+    var count = seconds;
+    updateCountdown(count);
+
+    // Send XMLHttpRequest immediately when the countdown starts
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/timer-up", true);
+    xhr.send();
+
+    countdownInterval = setInterval(function () {
+        count--;
+        updateCountdown(count);
+
+        if (count <= 0) {
+            clearInterval(countdownInterval);
+
+            // Optionally, you can also send an XMLHttpRequest when the timer is up
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/timer-up", true);
+            xhr.send();
+
+            // Set the toggle button to "off"
+            document.getElementById("output").checked = false;
+        }
+    }, 1000);
+}
+
+
+    document.getElementById('submitButton').addEventListener('click', function () {
+        var sliderValue = document.getElementById('pwmSlider').value;
+        userNameInput(sliderValue);
+    });
+
+    function userNameInput(sliderValue) {
+        var firstName = document.getElementById('firstName').value;
+        var dose = document.getElementById('dose').value;
+        var result = document.getElementById('result');
+
+        if (firstName.length < 3) {
+            result.textContent = 'Name must contain at least 3 characters';
+        } else {
+            var res = dose / sliderValue;
+            var minutes = Math.floor(res); // Extract the whole number of minutes
+            var seconds = Math.floor((res % 1) * 60);
+
+            result.textContent = 'Dosage amount will end in ' + minutes + ' minutes and ' + seconds + ' seconds';
+
+            // Convert to total seconds
+            var totalSeconds = Math.round(res * 60);
+
+            // Update the timer value with total seconds
+            document.getElementById("countdownTimer").setAttribute("data-total-seconds", totalSeconds);
+            updateCountdown(totalSeconds);
+        }
+    }
+
+    function updateCountdown(seconds) {
+        document.getElementById("countdownTimer").innerHTML = seconds + " s";
+
+        // Calculate hours, minutes, and remaining seconds
+        var hours = Math.floor(seconds / 3600);
+        var minutes = Math.floor((seconds % 3600) / 60);
+        var remainingSeconds = seconds % 60;
+
+        // Update the timer input boxes
+        document.getElementById("timerHours").value = hours;
+        document.getElementById("timerMinutes").value = minutes;
+        document.getElementById("timerSeconds").value = remainingSeconds;
+
+
+    }
+
+    
+
+    function mapRange(value, fromLow, fromHigh, toLow, toHigh) {
+    return (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;
+}
+
+function updateSliderPWM(element) {
+    var sliderValue = element.value;
+    var calibratedValue = mapRange(parseFloat(sliderValue), 2.3, 8.4, 125, 255);
+    document.getElementById("textSliderValue").innerHTML = sliderValue; // Display the original value
+
+    // You can include your XMLHttpRequest here if needed
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/slider?param=pwmValue&value=" + calibratedValue, true);
+    xhr.send();
+}
+
+document.getElementById('resetButton').addEventListener('click', function () {
+    resetFlowRate();
+});
+
+// Function to reset flow rate and enable slider editing
+function resetFlowRate() {
+    // Enable the set flow rate button
+    document.getElementById('submitButton').disabled = false;
+
+    // Enable the slider for editing
+    document.getElementById('pwmSlider').classList.remove('disabled-slider');
+
+    // Reset the result message
+    document.getElementById('result').textContent = '';
+}
+
+</script>
+
+</body>
+</html>
