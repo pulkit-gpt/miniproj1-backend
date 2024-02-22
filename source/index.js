@@ -7,6 +7,8 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+const esp_url = "http://192.168.137.203:5000";
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -28,7 +30,7 @@ app.get("/on_led", (req, res) => {
 });
 
 const on_led = async (req, res) => {
-	await got("http://192.168.137.203:5000/on");
+	await got(`${esp_url}/on`);
 	res.json({ message: "LED is ON" });
 	return;
 };
@@ -38,7 +40,7 @@ app.get("/off_led", (req, res) => {
 });
 
 const off_led = async (req, res) => {
-	await got("http://192.168.137.203:5000/off");
+	await got(`${esp_url}/off`);
 	res.json({ message: "LED is Off" });
 	return;
 };
@@ -48,7 +50,7 @@ app.get("/toggle", (req, res) => {
 });
 
 const toggle = async (req, res) => {
-	await got("http://192.168.137.203:5000/toggle");
+	await got(`${esp_url}/toggle`);
 	res.json({ message: "LED is Toggled" });
 	return;
 };
