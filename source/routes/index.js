@@ -5,3 +5,5 @@ const router = express.Router();
 
 router.use("/motor", motorRoutes);
 router.use("/tut", tutorialRoutes);
+
+export default router;
