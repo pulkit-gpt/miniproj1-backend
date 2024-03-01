@@ -24,5 +24,6 @@ router.post("/", (req, res) => {
 router.use("/stop", (req, res) => {
 	stopMotor();
 	res.json({ message: "Motor is Off" });
+	console.log("Motor is Off");
 });
 export default router;
