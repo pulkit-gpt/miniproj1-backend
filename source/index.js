@@ -8,8 +8,6 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-export const esp_url = "http://192.168.137.103:5000";
-
 app.use(cors());
 app.use(express.json());
 app.use("/", routes);
