@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
 	}
 });
 
-router.use("/stop", (req, res) => {
+router.get("/stop", (req, res) => {
 	stopMotor();
 	res.json({ message: "Motor is Off" });
 	console.log("Motor is Off");

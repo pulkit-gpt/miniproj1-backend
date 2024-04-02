@@ -1,5 +1,5 @@
 import got from "got";
-import { esp_url } from "../utils.js";
+import { esp_url } from "../index.js";
 export const forwardMotor = async value => {
 	let response = await got.post(`${esp_url}/forward`, {
 		json: {

@@ -1,5 +1,10 @@
 import express from "express";
-import { on_led, off_led, toggle } from "../controller/tutorialController.js";
+import {
+	on_led,
+	off_led,
+	toggle,
+	update
+} from "../controller/tutorialController.js";
 const router = express.Router();
 
 router.post("/name", (req, res) => {
@@ -18,6 +23,16 @@ router.get("/off_led", (req, res) => {
 
 router.get("/toggle", (req, res) => {
 	toggle(req, res);
+});
+
+router.get("/update", (req, res) => {
+	update(req, res);
+});
+
+router.post("/ip", (req, res) => {
+	let data = req.body;
+	console.log(data.ip);
+	res.json({ message: `IP: ${data.ip}` });
 });
 
 export default router;
