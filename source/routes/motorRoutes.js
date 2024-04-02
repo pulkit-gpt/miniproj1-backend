@@ -10,19 +10,20 @@ router.post("/", (req, res) => {
 	let data = req.body;
 	console.log(data);
 	if (data.option === "forward") {
-		forwardMotor(data.slider);
+		forwardMotor(data.slider, data.room);
 		res.json({ message: "Motor is moving forward" });
 	} else if (data.option === "backward") {
-		backwardMotor(data.slider);
+		backwardMotor(data.slider, data.room);
 		res.json({ message: "Motor is moving backward" });
 	} else {
-		console.log(data.option);
+		console.log(data.option, data.room);
 		res.json({ message: "Invalid direction" });
 	}
 });
 
-router.get("/stop", (req, res) => {
-	stopMotor();
+router.post("/stop", (req, res) => {
+	let data = req.body;
+	stopMotor(data.room);
 	res.json({ message: "Motor is Off" });
 	console.log("Motor is Off");
 });

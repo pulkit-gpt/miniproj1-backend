@@ -1,7 +1,7 @@
 import got from "got";
 import { esp_url } from "../index.js";
-export const forwardMotor = async value => {
-	let response = await got.post(`${esp_url}/forward`, {
+export const forwardMotor = async (value, room) => {
+	let response = await got.post(`${esp_url[room]}/forward`, {
 		json: {
 			duty: value
 		},
@@ -11,8 +11,8 @@ export const forwardMotor = async value => {
 	return;
 };
 
-export const backwardMotor = async value => {
-	let response = await got.post(`${esp_url}/backward`, {
+export const backwardMotor = async (value, room) => {
+	let response = await got.post(`${esp_url[room]}/backward`, {
 		json: {
 			duty: value
 		},
@@ -22,7 +22,7 @@ export const backwardMotor = async value => {
 	return;
 };
 
-export const stopMotor = async () => {
-	await got(`${esp_url}/stop`);
+export const stopMotor = async room => {
+	await got(`${esp_url[room]}/stop`);
 	return;
 };
