@@ -13,12 +13,14 @@ router.post("/name", (req, res) => {
 	console.log(`Hello, ${name}!`);
 });
 
-router.get("/on_led", (req, res) => {
-	on_led(req, res);
+router.post("/on_led", (req, res) => {
+	let data = req.body;
+	on_led(data, res);
 });
 
-router.get("/off_led", (req, res) => {
-	off_led(req, res);
+router.post("/off_led", (req, res) => {
+	let data = req.body;
+	off_led(data, res);
 });
 
 router.get("/toggle", (req, res) => {
