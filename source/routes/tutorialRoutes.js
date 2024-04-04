@@ -27,7 +27,7 @@ router.get("/toggle", (req, res) => {
 	toggle(req, res);
 });
 
-router.get("/update", (req, res) => {
+router.post("/update", (req, res) => {
 	update(req, res);
 });
 

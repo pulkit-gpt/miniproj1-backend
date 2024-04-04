@@ -21,7 +21,8 @@ export const toggle = async (req, res) => {
 };
 
 export const update = async (req, res) => {
-	let reply = await got(`${esp_url}/update`);
+	let data = req.body;
+	let reply = await got(`${esp_url[data.room]}/update`);
 	res.json({ message: reply.body });
 	return;
 };
